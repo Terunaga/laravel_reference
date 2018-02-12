@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
 {
+    use DownForeignKeyCheckTrait;
+
     protected $table = 'comments';
 
     /**
@@ -22,15 +24,5 @@ class CreateCommentsTable extends Migration
             $table->text('comment');
             $table->timestamps();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('comments');
     }
 }

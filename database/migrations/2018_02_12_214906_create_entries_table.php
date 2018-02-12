@@ -6,6 +6,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateEntriesTable extends Migration
 {
+    use DownForeignKeyCheckTrait;
+
     protected $table = 'entries';
 
     /**
@@ -22,15 +24,5 @@ class CreateEntriesTable extends Migration
             $table->text('body');
             $table->timestamps();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('entries');
     }
 }
